@@ -1,8 +1,10 @@
 require('dotenv').config();
-const http = require('http');
 const port = process.env.APP_PORT || 3000 ;
 
-const server = http.createServer((req,res)=> {
-     res.end('Welcome to the Educonnecte  API');
-})
+const http = require('http');
+const app  = require('./app');
+
+app.set('port',port);
+const server = http.createServer(app);
+
 server.listen(port);

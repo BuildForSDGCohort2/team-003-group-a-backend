@@ -4,7 +4,7 @@
   "description": "Educonnecte API build on node.js",
   "main": "server.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,13 +20,14 @@
   "author": "team-003-group-a",
   "license": "ISC",
   "engines": {
-   "node":"13.2.0"
+    "node": "13.2.0"
   },
   "bugs": {
     "url": "https://github.com/BuildForSDGCohort2/team-003-group-a-backend/issues"
   },
   "homepage": "https://github.com/BuildForSDGCohort2/team-003-group-a-backend#readme",
   "dependencies": {
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
   }
 }

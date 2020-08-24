@@ -1,0 +1,28 @@
+{
+  "name": "educonnecte.com",
+  "version": "1.0.0",
+  "description": "Educonnecte API build on node.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BuildForSDGCohort2/team-003-group-a-backend.git"
+  },
+  "keywords": [
+    "Node",
+    "Epress",
+    "REST",
+    "API"
+  ],
+  "author": "team-003-group-a",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BuildForSDGCohort2/team-003-group-a-backend/issues"
+  },
+  "homepage": "https://github.com/BuildForSDGCohort2/team-003-group-a-backend#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
+}

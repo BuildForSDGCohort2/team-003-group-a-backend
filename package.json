@@ -19,6 +19,9 @@
   ],
   "author": "team-003-group-a",
   "license": "ISC",
+  "engines": {
+   "node":"13.2.0"
+  },
   "bugs": {
     "url": "https://github.com/BuildForSDGCohort2/team-003-group-a-backend/issues"
   },

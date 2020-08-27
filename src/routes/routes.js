@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import api from './api/index.routes.js';
 
 dotenv.config();
 
@@ -15,5 +16,8 @@ router.get((req, res) => {
     .status(200)
     .json({ message: 'educonnecte rest api built on node.js and express' });
 });
+
+router.use(baseUrl, api);
+router.use(api);
 
 export default router;

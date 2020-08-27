@@ -11,10 +11,13 @@ const baseUrl = `/api/${apiVersion}`;
 
 router.use(cors());
 
-router.get((req, res) => {
+router.get('/api', (req, res) => {
   res
     .status(200)
-    .json({ message: 'educonnecte rest api built on node.js and express' });
+    .json({
+      message: 'educonnecte rest api built on node.js and express',
+      statu: 'success',
+    });
 });
 
 router.use(baseUrl, api);

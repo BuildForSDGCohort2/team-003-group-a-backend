@@ -1,5 +1,8 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const generateToken = async (user) => {
   const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);

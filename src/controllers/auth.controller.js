@@ -3,11 +3,11 @@ import responses from '../helpers/responses.js';
 import helper from '../helpers/helper.js';
 import userModel from '../models/user.model.js';
 
-const { createUser } = userService;
+const { createUser, getUserByEmail } = userService;
 const { successResponse, errorResponse } = responses;
 const { generateToken, hashPassword } = helper;
 
-const addUser = async (req, res) => {
+const signUp = async (req, res) => {
   try {
     const { name, profession, password, email } = req.body;
     const encryptPassword = await hashPassword(password);
@@ -25,6 +25,18 @@ const addUser = async (req, res) => {
   }
 };
 
+const logIn = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const user = await getUserByEmail(email);
+    const token = await generateToken(user);
+    return successResponse(res, 200, token, 'successfully logged In', user);
+  } catch (error) {
+    return errorResponse(res, 401, error.message);
+  }
+};
+
 export default {
-  addUser,
+  signUp,
+  logIn,
 };

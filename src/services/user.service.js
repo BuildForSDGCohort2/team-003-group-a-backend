@@ -17,7 +17,16 @@ const getUserByEmail = async (email) => {
   }
 };
 
+const getUserById = async (id) => {
+  try {
+    return await userModel.findById(id);
+  } catch (error) {
+    throw error;
+  }
+};
+
 export default {
   createUser,
   getUserByEmail,
+  getUserById,
 };

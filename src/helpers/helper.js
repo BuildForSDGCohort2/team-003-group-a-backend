@@ -19,8 +19,15 @@ const comparePassword = async (password, hashedPassword) => {
   return bool;
 };
 
+const verifyToken = (token) => {
+  const bool = jwt.verify(token, process.env.JWT_SECRET);
+  console.log(bool);
+  return bool;
+};
+
 export default {
   generateToken,
   hashPassword,
   comparePassword,
+  verifyToken,
 };

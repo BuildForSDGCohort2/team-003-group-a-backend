@@ -1,23 +1,17 @@
 import express from 'express';
+import vacancyController from '../../../controllers/vacancy.controller.js';
 
 const router = express.Router();
+const { createVacancy } = vacancyController;
 
 router
-  .get('/vacancies', (req, res) => {
-    res.status(200).json({
-      message: 'Fetch all jobs posted',
-    });
-  })
+  .get('/vacancies')
   .get('/users/vacancies/:vacancyId', (req, res) => {
     res.status(200).json({
       message: 'Fetch specific vacancy',
     });
   })
-  .post('/users/vacancies', (req, res) => {
-    res.status(200).json({
-      message: 'Post a vacancy',
-    });
-  })
+  .post('/vacancies/add', createVacancy)
   .post('/users/vacancy/:vacanciesId', (req, res) => {
     res.json({
       message: 'Users post a job',

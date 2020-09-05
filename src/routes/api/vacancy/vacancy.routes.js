@@ -2,10 +2,10 @@ import express from 'express';
 import vacancyController from '../../../controllers/vacancy.controller.js';
 
 const router = express.Router();
-const { createVacancy } = vacancyController;
+const { createVacancy, viewAllVacancy } = vacancyController;
 
 router
-  .get('/vacancies')
+  .get('/vacancies', viewAllVacancy)
   .get('/users/vacancies/:vacancyId', (req, res) => {
     res.status(200).json({
       message: 'Fetch specific vacancy',

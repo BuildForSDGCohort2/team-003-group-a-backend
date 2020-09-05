@@ -13,7 +13,7 @@ const vacancySchema = mongoose.Schema({
   },
   datePosted: {
     type: String,
-    default: new Date().toUTCString(),
+    default: new Date().toDateString(),
   },
   status: {
     type: String,

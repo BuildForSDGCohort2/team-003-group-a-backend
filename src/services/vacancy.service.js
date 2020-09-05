@@ -8,16 +8,15 @@ const postVacancy = async (vacancy) => {
   }
 };
 
-// const getVacancy = async () => {
-//     try {
-//         return await vacancyModel.find();
-//     } catch (error) {
-//         throw error
-//     }
-
-// }
+const getVacancy = async () => {
+  try {
+    return await vacancyModel.find();
+  } catch (error) {
+    throw error;
+  }
+};
 
 export default {
   postVacancy,
-  // getVacancy
+  getVacancy,
 };

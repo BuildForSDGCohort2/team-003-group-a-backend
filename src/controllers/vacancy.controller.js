@@ -1,13 +1,17 @@
 import vacancyService from '../services/vacancy.service.js';
 import response from '../helpers/responses.js';
 import vacancyModel from '../models/vacancy.model.js';
+import statusCode from '../helpers/statusCode.js';
+import customMessage from '../helpers/customMessage.js';
 
 /**
  * @description this controller deals with everything about post a vancancy
  */
 
+const { ok, created, badRequest } = statusCode;
+const { jobCreated, jobExist } = customMessage;
 const { successResponse, errorResponse } = response;
-const { postVacancy, getVacancy } = vacancyService;
+const { postVacancy, getVacancy, getVacancyById } = vacancyService;
 
 /**
  * @param {object} req request
@@ -22,15 +26,9 @@ const createVacancy = async (req, res) => {
       description,
     });
     vacancy = await postVacancy(vacancy);
-    return successResponse(
-      res,
-      201,
-      '',
-      'posted vacancy successfully',
-      vacancy
-    );
+    return successResponse(res, created, '', jobCreated, vacancy);
   } catch (error) {
-    return errorResponse(res, 401, error.message);
+    return errorResponse(res, badRequest);
   }
 };
 
@@ -43,13 +41,20 @@ const createVacancy = async (req, res) => {
 const viewAllVacancy = async (req, res) => {
   try {
     const vacancy = await getVacancy();
-    return successResponse(res, 200, '', 'all vacancy', vacancy);
+    return successResponse(res, ok, '', 'all vacancy', vacancy);
   } catch (error) {
     return errorResponse(res, 401, error.message);
   }
 };
 
+const viewOneVacancy = async (req, res) => {
+  const { vacancyId } = req.params;
+  const vacancy = await getVacancyById(vacancyId);
+  return successResponse(res, ok, undefined, jobExist, vacancy);
+};
+
 export default {
   createVacancy,
   viewAllVacancy,
+  viewOneVacancy,
 };

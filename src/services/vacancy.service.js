@@ -16,7 +16,16 @@ const getVacancy = async () => {
   }
 };
 
+const getVacancyById = async (id) => {
+  try {
+    return await vacancyModel.findById(id);
+  } catch (error) {
+    throw error;
+  }
+};
+
 export default {
   postVacancy,
   getVacancy,
+  getVacancyById,
 };

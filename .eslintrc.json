@@ -58,6 +58,6 @@
       "prefer-destructuring": ["error", {"object": true, "array": false}],
       "no-tabs": ["Error", { "allowIndentationTabs": true }],
       "no-underscore-dangle": ["error", { "allow": ["", "_id"] }],
-      "max-len": ["error", { "code": 300 }]
+      "max-len": ["error", { "code": 150 }]
     }
 }

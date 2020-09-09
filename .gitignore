@@ -3,4 +3,3 @@ node_modules
 dist-src
 .nyc_output
 package-lock.json
-coverage
